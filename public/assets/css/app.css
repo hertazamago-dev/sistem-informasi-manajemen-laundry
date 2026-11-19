@@ -1,0 +1,87 @@
+/* ===== Sistem Informasi Manajemen Laundry - tema aqua/busa sabun ===== */
+:root {
+  --primary: #0EA5E9; --primary-dark: #0369A1; --primary-deep: #075985;
+  --bg: #F1F5F9; --ink: #0F172A; --muted: #64748B; --line: #E2E8F0;
+  --hijau: #22C55E; --oranye: #F59E0B; --merah: #EF4444; --radius: 14px;
+  --bs-primary: #0EA5E9; --bs-primary-rgb: 14,165,233; --bs-link-color: #0369A1; --bs-link-hover-color: #075985;
+}
+body { background: var(--bg); color: var(--ink); font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: .93rem; }
+.btn-primary { --bs-btn-bg: var(--primary); --bs-btn-border-color: var(--primary); --bs-btn-hover-bg: var(--primary-dark); --bs-btn-hover-border-color: var(--primary-dark); --bs-btn-active-bg: var(--primary-dark); --bs-btn-active-border-color: var(--primary-dark); --bs-btn-disabled-bg: var(--primary); --bs-btn-disabled-border-color: var(--primary); }
+.btn-outline-primary { --bs-btn-color: var(--primary-dark); --bs-btn-border-color: var(--primary); --bs-btn-hover-bg: var(--primary); --bs-btn-hover-border-color: var(--primary); --bs-btn-active-bg: var(--primary-dark); }
+.form-control:focus, .form-select:focus, .form-check-input:focus { border-color: var(--primary); box-shadow: 0 0 0 .2rem rgba(14,165,233,.18); }
+.form-check-input:checked { background-color: var(--primary); border-color: var(--primary); }
+.form-label { font-weight: 600; font-size: .85rem; }
+
+/* Tata letak */
+.app-wrapper { display: flex; min-height: 100vh; }
+.sidebar { --bs-offcanvas-width: 270px; flex-shrink: 0; border: 0 !important; }
+.sidebar-inner { width: 270px; height: 100%; display: flex; flex-direction: column; color: #E0F2FE; padding: 1.25rem 1rem;
+  background: linear-gradient(180deg, var(--primary-dark) 0%, var(--primary-deep) 100%); }
+@media (min-width: 992px) { .sidebar { width: 270px; position: sticky; top: 0; height: 100vh; align-self: flex-start; } }
+.brand { display: flex; align-items: center; gap: .65rem; padding: .25rem .5rem 1.25rem; color: #fff; text-decoration: none; }
+.brand-logo { width: 42px; height: 42px; border-radius: 12px; background: rgba(255,255,255,.16); display: grid; place-items: center; font-size: 1.4rem; }
+.brand b { display: block; line-height: 1.1; font-size: 1.05rem; } .brand small { opacity: .75; font-size: .72rem; }
+.nav-label { font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; opacity: .6; padding: .9rem .75rem .35rem; }
+.nav-item-link { display: flex; align-items: center; gap: .75rem; padding: .62rem .85rem; border-radius: 10px; color: #E0F2FE; text-decoration: none; margin-bottom: 2px; transition: .15s; }
+.nav-item-link i { font-size: 1.1rem; width: 1.4rem; text-align: center; }
+.nav-item-link:hover { background: rgba(255,255,255,.1); color: #fff; }
+.nav-item-link.active { background: #fff; color: var(--primary-dark); font-weight: 600; box-shadow: 0 6px 16px rgba(0,0,0,.15); }
+.sidebar-foot { margin-top: auto; font-size: .75rem; opacity: .7; padding: .75rem .5rem 0; }
+.app-main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.app-navbar { background: #fff; border-bottom: 1px solid var(--line); padding: .7rem 1.25rem; display: flex; align-items: center; gap: .75rem; position: sticky; top: 0; z-index: 100; }
+.app-navbar h1 { font-size: 1.1rem; font-weight: 700; margin: 0; }
+.avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--primary); color: #fff; display: grid; place-items: center; font-weight: 700; }
+.app-content { padding: 1.5rem; flex: 1; }
+.app-footer { padding: 1rem 1.5rem; color: var(--muted); font-size: .8rem; }
+
+/* Kartu & tabel */
+.cardx { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 1px 2px rgba(15,23,42,.04); }
+.cardx-head { padding: 1rem 1.25rem; border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: .5rem; flex-wrap: wrap; }
+.cardx-head h2 { font-size: 1rem; font-weight: 700; margin: 0; } .cardx-body { padding: 1.25rem; }
+.table-wrap { overflow-x: auto; }
+.tabel { margin: 0; } .tabel thead th { background: #F8FAFC; font-size: .74rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); white-space: nowrap; border-bottom: 1px solid var(--line); }
+.tabel td, .tabel th { padding: .8rem 1rem; vertical-align: middle; }
+.stat { padding: 1.1rem 1.25rem; display: flex; align-items: center; gap: 1rem; height: 100%; }
+.stat-ikon { width: 50px; height: 50px; border-radius: 14px; display: grid; place-items: center; font-size: 1.5rem; flex-shrink: 0; }
+.stat-ikon.biru { background: #E0F2FE; color: var(--primary-dark); } .stat-ikon.hijau { background: #DCFCE7; color: #15803D; }
+.stat-ikon.oranye { background: #FEF3C7; color: #B45309; } .stat-ikon.merah { background: #FEE2E2; color: #B91C1C; } .stat-ikon.abu { background: #E2E8F0; color: #475569; }
+.stat-nilai { font-size: 1.45rem; font-weight: 700; line-height: 1.1; } .stat-label { color: var(--muted); font-size: .8rem; }
+
+/* Badge status: abu = menunggu, oranye = proses, hijau = selesai/lunas, merah = belum dibayar */
+.bdg { display: inline-flex; align-items: center; gap: .35rem; padding: .28rem .65rem; border-radius: 999px; font-size: .74rem; font-weight: 600; white-space: nowrap; }
+.bdg-abu { background: #E2E8F0; color: #475569; } .bdg-oranye { background: #FEF3C7; color: #B45309; }
+.bdg-hijau { background: #DCFCE7; color: #15803D; } .bdg-merah { background: #FEE2E2; color: #B91C1C; }
+
+/* Stepper & timeline status */
+.stepper { display: flex; gap: .25rem; overflow-x: auto; padding-bottom: .5rem; }
+.step { flex: 1; min-width: 92px; text-align: center; position: relative; font-size: .76rem; color: var(--muted); }
+.step .dot { width: 38px; height: 38px; border-radius: 50%; margin: 0 auto .4rem; display: grid; place-items: center; background: #E2E8F0; color: #94A3B8; font-size: 1.1rem; }
+.step.done .dot { background: var(--hijau); color: #fff; } .step.now .dot { background: var(--oranye); color: #fff; box-shadow: 0 0 0 5px rgba(245,158,11,.2); }
+.step.done, .step.now { color: var(--ink); font-weight: 600; }
+.timeline { list-style: none; padding: 0; margin: 0; }
+.timeline li { position: relative; padding: 0 0 1.1rem 1.6rem; border-left: 2px solid var(--line); margin-left: .5rem; }
+.timeline li:last-child { border-left-color: transparent; padding-bottom: 0; }
+.timeline li::before { content: ''; position: absolute; left: -7px; top: 3px; width: 12px; height: 12px; border-radius: 50%; background: var(--primary); }
+
+.kosong { text-align: center; color: var(--muted); padding: 2.5rem 1rem; } .kosong i { font-size: 2.4rem; color: #BAE6FD; display: block; }
+.hero-mini { background: linear-gradient(120deg, var(--primary) 0%, var(--primary-dark) 100%); color: #fff; border-radius: var(--radius); padding: 1.4rem 1.6rem; position: relative; overflow: hidden; }
+.hero-mini::after { content: ''; position: absolute; right: -30px; top: -30px; width: 160px; height: 160px; border-radius: 50%; background: rgba(255,255,255,.12); }
+.toast-wrap { position: fixed; top: 1rem; right: 1rem; z-index: 2000; display: grid; gap: .5rem; max-width: calc(100vw - 2rem); }
+
+/* Halaman login */
+.login-page { min-height: 100vh; display: grid; grid-template-columns: 1.1fr 1fr; }
+.login-art { background: linear-gradient(150deg, var(--primary) 0%, var(--primary-deep) 100%); color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; position: relative; overflow: hidden; }
+.login-art svg { max-width: 460px; width: 100%; animation: melayang 6s ease-in-out infinite; }
+@keyframes melayang { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.login-form { display: flex; align-items: center; justify-content: center; padding: 2rem; background: #fff; }
+.login-box { width: 100%; max-width: 380px; }
+@media (max-width: 991px) { .login-page { grid-template-columns: 1fr; } .login-art { display: none; } .login-form { background: var(--bg); } }
+
+/* Nota & dokumen cetak */
+.nota { max-width: 420px; margin: 1.5rem auto; background: #fff; border: 1px dashed #94A3B8; padding: 1.4rem; font-size: .85rem; }
+.nota table { width: 100%; } .nota hr { border-top: 1px dashed #94A3B8; opacity: 1; }
+@media print {
+  .sidebar, .app-navbar, .app-footer, .no-print, .toast-wrap { display: none !important; }
+  body { background: #fff; } .app-content { padding: 0; } .cardx { box-shadow: none; }
+  .nota { border: 0; margin: 0 auto; }
+}
